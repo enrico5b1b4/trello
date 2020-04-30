@@ -209,6 +209,7 @@ func (c *Client) do(req *http.Request, url string, target interface{}) error {
 	if err != nil {
 		return errors.Wrapf(err, "HTTP Read error on response for %s", url)
 	}
+
 	err = json.Unmarshal(b, target)
 	if err != nil {
 		return errors.Wrapf(err, "JSON decode failed on %s:\n%s", url, string(b))
